@@ -54,10 +54,12 @@ function _M.connect(self, port, host)
   local read, write = assert(connect(host, port))
   self.read, self.write = tlsWrap(read, write)
   local head = self.read()
-  print(head:sub(1, #head - 1))
+  local code, banner = string.match(head, "(...) (.*)")
+  assert(tonumber(code) == 200)
   if self.opts.username and self.opts.password then
     self:authenticate()
   end
+  return nil, banner
 end
 
 return _M
