@@ -1,6 +1,6 @@
 return {
   name = "rphillips/nntp",
-  version = "0.0.1",
+  version = "0.0.2",
   dependencies = {
     "creationix/require@1.0.2",
     "creationix/coro-fs@1.2.3",
@@ -13,5 +13,6 @@ return {
     "**.lua",
     "!nntp",
     "!lit*",
+    "!main.lua",
   }
 }
